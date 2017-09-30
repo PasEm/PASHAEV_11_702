@@ -51,11 +51,11 @@ public class ArrayList {
         if (array.length - 1 < index){
             increase();
         }
-        count = index > count ? index + 1 : + 1;
         for (int i = count-1; i >= index; i--){
             array[i+1] = array[i];
         }
         array[index] = number;
+        count = index > count ? index + 1 : + 1;
     }
     void exit(){
         System.exit(0);
