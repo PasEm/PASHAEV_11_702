@@ -1,32 +1,32 @@
 package ru.itis;
 
-import java.util.Arrays;
-import java.util.Scanner;
-
 public class ArrayList {
-    int array[] = new int[100];
-    int count = 0, firstsize = 0;
-    void addToEnd(){
-        Scanner scanner = new Scanner(System.in);
-        int element = scanner.nextInt();
-        if (count + 1 < array.length){
+    int array[];
+    int count = 0;
+    void addToEnd(int element){
+        if (count + 1 > array.length){
                 increase();
         }
         array[count] = element;
         count++;
     }
     void showList() {
-        for (int i = 0; i < (count > firstsize ? count : firstsize); i++){
+        for (int i = 0; i < count; i++){
             System.out.print(array[i] + " ");
         }
         System.out.println();
     }
     void increase(){
-        array = Arrays.copyOf(array, array.length * 2);
+        int newarray[] = new int [array.length];
+        for (int i = 0; i < array.length; i++){
+            newarray[i] = array[i];
+        }
+        array = new int[array.length * 2];
+        for (int i = 0; i < newarray.length; i++){
+            array[i] = newarray[i];
+        }
     }
-    void deleteNumber(){
-        Scanner scanner = new Scanner(System.in);
-        int index = scanner.nextInt();
+    void deleteNumber(int index){
         array[index] = 0;
         for (int i = index; i < count; i++){
             int z = array[i];
@@ -44,25 +44,20 @@ public class ArrayList {
         System.out.println("5. Вывести массив");
         System.out.println("6. Выход из меню");
     }
-    void pushNumber(){
-        Scanner scanner = new Scanner(System.in);
-        int number = scanner.nextInt();
-        int index = scanner.nextInt();
-        if (array.length - 1 < index){
+    void pushNumber(int index, int number){
+        if (array.length-1 < count){
             increase();
         }
         for (int i = count-1; i >= index; i--){
             array[i+1] = array[i];
         }
         array[index] = number;
-        count = index > count ? index + 1 : + 1;
+        count = index > count ? index + 1 : count+ 1;
     }
     void exit(){
         System.exit(0);
     }
-    void init(){
-        Scanner scanner = new Scanner(System.in);
-        int size = scanner.nextInt();
-        firstsize = size;
+    void init(int size){
+        array = new int[size];
     }
 }

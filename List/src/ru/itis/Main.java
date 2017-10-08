@@ -12,16 +12,19 @@ public class Main {
             list.menu();
             command = scanner.nextInt();
             if (command == 1){
-                list.init();
+                list.init(scanner.nextInt());
             }
             if (command == 2){
-                list.addToEnd();
+                list.addToEnd(scanner.nextInt());
             }
             if (command == 3){
-                list.deleteNumber();
+                int index = scanner.nextInt();
+                list.deleteNumber(index);
             }
             if (command == 4){
-                list.pushNumber();
+                int index = scanner.nextInt();
+                int number = scanner.nextInt();
+                list.pushNumber(index, number);
             }
             if (command == 5){
                 list.showList();
