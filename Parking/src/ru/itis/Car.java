@@ -1,7 +1,6 @@
 package ru.itis;
 
 public class Car {
-    private ParkingPlace parkplace;
     private String model;
     private String color;
     private String number;
@@ -34,11 +33,5 @@ public class Car {
     }
     public String getNumber() {
         return number;
-    }
-    public void setParkposition(ParkingPlace parkplace){
-        this.parkplace = parkplace;
-    }
-    public ParkingPlace getParkposition(){
-        return parkplace;
     }
 }
