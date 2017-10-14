@@ -30,5 +30,7 @@ public class Car {
     public String getModel() {
         return model;
     }
-    public int getNumber() { return number; }
+    public int getNumber() {
+        return number;
+    }
 }
