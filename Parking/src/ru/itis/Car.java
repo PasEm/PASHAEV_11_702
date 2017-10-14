@@ -3,15 +3,14 @@ package ru.itis;
 public class Car {
     private String model;
     private String color;
-    private String number;
-    public Car(String model, String color, String number){
+    private int number;
+    public Car(String model, String color, int number){
         setColor(color);
         setModel(model);
         setNumber(number);
     }
     public void toPark(ParkingPlace parkplace){
         parkplace.parkCar(this);
-
     }
     public void toTake(ParkingPlace parkplace){
         parkplace.takeCar(this);
@@ -22,7 +21,7 @@ public class Car {
     public void setModel(String model) {
         this.model = model;
     }
-    public void setNumber(String number) {
+    public void setNumber(int number) {
         this.number = number;
     }
     public String getColor() {
@@ -31,7 +30,5 @@ public class Car {
     public String getModel() {
         return model;
     }
-    public String getNumber() {
-        return number;
-    }
+    public int getNumber() { return number; }
 }
