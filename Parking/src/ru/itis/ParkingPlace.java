@@ -8,7 +8,7 @@ public class ParkingPlace {
     private int maxCount = 2;
     private Car[] carPlaces = new Car[maxCount];
     private LocalTime beginTime = LocalTime.parse("00:00:00");
-    private LocalTime finishTime = LocalTime.parse("23:00:00");
+    private LocalTime finishTime = LocalTime.parse("22:00:00");
     public ParkingPlace(String place){
         setPlace(place);
     }
