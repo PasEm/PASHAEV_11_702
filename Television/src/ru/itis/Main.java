@@ -1,7 +1,5 @@
 package ru.itis;
 
-import java.util.concurrent.CopyOnWriteArrayList;
-
 public class Main {
 
     public static void main(String[] args) {
@@ -13,28 +11,58 @@ public class Main {
                 .termOfService("5 years")
                 .build();
         Television tvSet = Television.getTelevision();
-        Channel channel1 = new Channel("2x2");
-        Channel channel2 = new Channel("Netflix");
-        Channel channel3 = new Channel("HBO");
-        Channel channel4 = new Channel("Disney");
-        Channel channel5 = new Channel("Первый канал");
-        Channel channel6 = new Channel("Россия24");
-        Channel channel7 = new Channel("NationalGeographic");
-        Channel channel8 = new Channel("CTC");
-        Channel channel9 = new Channel("THT");
-        Channel channel10 = new Channel("Something");
-        tvSet.addChannel(channel1);
-        tvSet.addChannel(channel2);
-        tvSet.addChannel(channel3);
-        tvSet.addChannel(channel4);
-        tvSet.addChannel(channel5);
-        tvSet.addChannel(channel6);
-        tvSet.addChannel(channel7);
-        tvSet.addChannel(channel8);
-        tvSet.addChannel(channel9);
-        tvSet.addChannel(channel10);
-        pult.changeChannel(tvSet, channel1);
-        pult.changeChannel(tvSet, channel1);
-        pult.changeChannel(tvSet, channel2);
+        tvSet.addChannel(new Channel("2x2"));
+        tvSet.tvChannel[0].addBroadcast(new Broadcast("That", 0, 21600));
+        tvSet.tvChannel[1].addBroadcast(new Broadcast("Is", 21601, 43200));
+        tvSet.tvChannel[2].addBroadcast(new Broadcast("This", 43201, 64800));
+        tvSet.tvChannel[3].addBroadcast(new Broadcast("AAAAAAA", 64801, 86400));
+        tvSet.addChannel(new Channel("Netflix"));
+        tvSet.tvChannel[0].addBroadcast(new Broadcast("That", 0, 21600));
+        tvSet.tvChannel[1].addBroadcast(new Broadcast("Is", 21601, 43200));
+        tvSet.tvChannel[2].addBroadcast(new Broadcast("This", 43201, 64800));
+        tvSet.tvChannel[3].addBroadcast(new Broadcast("AAAAAAA", 64801, 86400));
+        tvSet.addChannel(new Channel("HBO"));
+        tvSet.tvChannel[0].addBroadcast(new Broadcast("That", 0, 21600));
+        tvSet.tvChannel[1].addBroadcast(new Broadcast("Is", 21601, 43200));
+        tvSet.tvChannel[2].addBroadcast(new Broadcast("This", 43201, 64800));
+        tvSet.tvChannel[3].addBroadcast(new Broadcast("AAAAAAA", 64801, 86400));
+        tvSet.addChannel(new Channel("Disney"));
+        tvSet.tvChannel[0].addBroadcast(new Broadcast("That", 0, 21600));
+        tvSet.tvChannel[1].addBroadcast(new Broadcast("Is", 21601, 43200));
+        tvSet.tvChannel[2].addBroadcast(new Broadcast("This", 43201, 64800));
+        tvSet.tvChannel[3].addBroadcast(new Broadcast("AAAAAAA", 64801, 86400));
+        tvSet.addChannel(new Channel("Первый канал"));
+        tvSet.tvChannel[0].addBroadcast(new Broadcast("That", 0, 21600));
+        tvSet.tvChannel[1].addBroadcast(new Broadcast("Is", 21601, 43200));
+        tvSet.tvChannel[2].addBroadcast(new Broadcast("This", 43201, 64800));
+        tvSet.tvChannel[3].addBroadcast(new Broadcast("AAAAAAA", 64801, 86400));
+        tvSet.addChannel(new Channel("Россия24"));
+        tvSet.tvChannel[0].addBroadcast(new Broadcast("That", 0, 21600));
+        tvSet.tvChannel[1].addBroadcast(new Broadcast("Is", 21601, 43200));
+        tvSet.tvChannel[2].addBroadcast(new Broadcast("This", 43201, 64800));
+        tvSet.tvChannel[3].addBroadcast(new Broadcast("AAAAAAA", 64801, 86400));
+        tvSet.addChannel(new Channel("NationalGeographic"));
+        tvSet.tvChannel[0].addBroadcast(new Broadcast("That", 0, 21600));
+        tvSet.tvChannel[1].addBroadcast(new Broadcast("Is", 21601, 43200));
+        tvSet.tvChannel[2].addBroadcast(new Broadcast("This", 43201, 64800));
+        tvSet.tvChannel[3].addBroadcast(new Broadcast("AAAAAAA", 64801, 86400));
+        tvSet.addChannel(new Channel("CTC"));
+        tvSet.tvChannel[0].addBroadcast(new Broadcast("That", 0, 21600));
+        tvSet.tvChannel[1].addBroadcast(new Broadcast("Is", 21601, 43200));
+        tvSet.tvChannel[2].addBroadcast(new Broadcast("This", 43201, 64800));
+        tvSet.tvChannel[3].addBroadcast(new Broadcast("AAAAAAA", 64801, 86400));
+        tvSet.addChannel(new Channel("THT"));
+        tvSet.tvChannel[0].addBroadcast(new Broadcast("That", 0, 21600));
+        tvSet.tvChannel[1].addBroadcast(new Broadcast("Is", 21601, 43200));
+        tvSet.tvChannel[2].addBroadcast(new Broadcast("This", 43201, 64800));
+        tvSet.tvChannel[3].addBroadcast(new Broadcast("AAAAAAA", 64801, 86400));
+        tvSet.addChannel(new Channel("Something"));
+        tvSet.tvChannel[0].addBroadcast(new Broadcast("That", 0, 21600));
+        tvSet.tvChannel[1].addBroadcast(new Broadcast("Is", 21601, 43200));
+        tvSet.tvChannel[2].addBroadcast(new Broadcast("This", 43201, 64800));
+        tvSet.tvChannel[3].addBroadcast(new Broadcast("AAAAAAA", 64801, 86400));
+        pult.changeChannel(tvSet, tvSet.tvChannel[0]);
+        pult.changeChannel(tvSet, tvSet.tvChannel[7]);
+        pult.changeChannel(tvSet, tvSet.tvChannel[5]);
     }
 }
