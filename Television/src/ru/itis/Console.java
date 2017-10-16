@@ -10,15 +10,14 @@ public class Console {
     private String firm;
     private String manufacturer;
     private String termOfService;
-    private Television tvSet;
-    private int channelCount = 10;
-    private int broadcastCount = 4;
+    private Television tvSet = Television.getTelevision();
     public Console(Builder builder){
-        this.serialNumber = builder.serialNumber;
+      /*  this.serialNumber = builder.serialNumber;
         this.name = builder.name;
         this.firm = builder.firm;
         this.manufacturer = builder.manufacturer;
         this.termOfService = builder.termOfService;
+        */
     }
     public static Builder builder() {
         return new Builder();
@@ -29,6 +28,8 @@ public class Console {
         private String firm;
         private String manufacturer;
         private String termOfService;
+        private int channelCount;
+        private int broadcastCount;
         public Builder serialNumber(String serialNumber){
             this.serialNumber = serialNumber;
             return this;
@@ -39,6 +40,14 @@ public class Console {
         }
         public Builder firm(String firm){
             this.firm = firm;
+            return this;
+        }
+        public Builder channelCount(int channelCount){
+            this.channelCount = channelCount;
+            return this;
+        }
+        public Builder broadcasrCount(int broadcastCount){
+            this.broadcastCount = broadcastCount;
             return this;
         }
         public Builder manufacturer(String manufacturer){
@@ -68,12 +77,13 @@ public class Console {
     public String getTermOfService() {
         return termOfService;
     }
-    public void changeChannel(Television tvSet, Channel channel){
-        for (int i = 0; i < channelCount; i++){
-            if (tvSet.tvChannel[i] == channel) {
-                for (int j = 0; j < broadcastCount; j++){
-                    if (LocalTime.now().isBefore(channel.tvBroadcast[j].getBeginTime()) && LocalTime.now().isAfter(channel.tvBroadcast[j].getFinishTime())){
-                        Television.getTelevision().log(tvSet.tvChannel[i].getName(), channel.tvBroadcast[j].getBroadcastName());
+    public void changeChannel(String name){
+        for (int i = 0; i < tvSet.channelCount; i++){
+            if (tvSet.tvChannel[i].getName() == name) {
+                for (int j = 0; j < tvSet.tvChannel[i].broadcastCount; j++) {
+                    if (LocalTime.now().isBefore(tvSet.tvChannel[i].tvBroadcast[j].getBeginTime()) && LocalTime.now().isAfter(tvSet.tvChannel[i].tvBroadcast[j].getFinishTime())) {
+                        Television.getTelevision().log(tvSet.tvChannel[i].getName(), tvSet.tvChannel[i].tvBroadcast[j].getBroadcastName());
+                        break;
                     }
                 }
             }

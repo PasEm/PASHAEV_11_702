@@ -3,7 +3,7 @@ package ru.itis;
 import java.time.LocalTime;
 
 public class Channel {
-    private int broadcastCount = 4;
+    public int broadcastCount = 4;
     Broadcast[] tvBroadcast = new Broadcast[broadcastCount];
     private String name;
     private int count = 0;
