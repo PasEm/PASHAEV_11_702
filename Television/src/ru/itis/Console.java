@@ -53,7 +53,7 @@ public class Console {
             return new Console(this);
         }
     }
- /*   public String getSerialNumber(){
+    public String getSerialNumber(){
         return serialNumber;
     }
     public String getFirm() {
@@ -67,10 +67,10 @@ public class Console {
     }
     public String getTermOfService() {
         return termOfService;
-    } */
+    }
     public void changeChannel(String name){
         for (int i = 0; i < tvSet.channelCount; i++){
-            if (tvSet.tvChannel[i].getName() == name) {
+            if (tvSet.tvChannel[i].getName().equals(name)) {
                 for (int j = 0; j < tvSet.tvChannel[i].broadcastCount; j++) {
                     if (LocalTime.now().isBefore(tvSet.tvChannel[i].tvBroadcast[j].getFinishTime()) && LocalTime.now().isAfter(tvSet.tvChannel[i].tvBroadcast[j].getBeginTime())) {
                         Television.getTelevision().log(tvSet.tvChannel[i].getName(), tvSet.tvChannel[i].tvBroadcast[j].getBroadcastName());

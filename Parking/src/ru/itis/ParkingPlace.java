@@ -36,17 +36,19 @@ public class ParkingPlace {
         }
     }
     public void takeCar(Car car){
-        if (LocalTime.now().isAfter(beginTime) && LocalTime.now().isBefore(finishTime)){
+        if (LocalTime.now().isAfter(beginTime) && LocalTime.now().isBefore(finishTime)) {
             int current = 0;
             while (current < maxCount) {
-                current = (carPlaces[current] == car) ? maxCount + 1 : + 1;
+                if (carPlaces[current] == car) {
+                    carPlaces[current] = null;
+                    count--;
+                    System.out.println(car.getColor() + " " + car.getModel() + " с номером " + car.getNumber() + " уехала с парковки под номером " + getPlace());
+                    break;
+                }
+                current++;
             }
-            if (current > maxCount){
+            if (current > maxCount) {
                 System.out.println("Данный автомобиль не был припаркован");
-            } else {
-                carPlaces[current] = null;
-                count--;
-                System.out.println(car.getColor() + " " + car.getModel() + " с номером " + car.getNumber() + " уехала с парковки под номером " + getPlace());
             }
         } else {
             System.out.println("Парковка не работает, возвращайтесь в другое время");
