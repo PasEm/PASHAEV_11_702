@@ -13,5 +13,6 @@ public class Main {
         car6.toPark(parking5);
         car1.toTake(parking1);
         car6.toTake(parking1);
+        car6.toPark(parking5);
     }
 }

@@ -20,7 +20,7 @@ public class ParkingPlace {
     }
     public void parkCar(Car car) {
         if (LocalTime.now().isAfter(beginTime) && LocalTime.now().isBefore(finishTime)) {
-            int current = 0;
+            int current =0;
             count++;
             if (count < maxCount) {
                 while (carPlaces[current] != null){
