@@ -39,7 +39,7 @@ public class ParkingPlace {
         if (LocalTime.now().isAfter(beginTime) && LocalTime.now().isBefore(finishTime)){
             int current = 0;
             while (current < maxCount) {
-                current = (carPlaces[current] == car ? maxCount + 1 : +1);
+                current = (carPlaces[current] == car) ? maxCount + 1 : + 1;
             }
             if (current > maxCount){
                 System.out.println("Данный автомобиль не был припаркован");

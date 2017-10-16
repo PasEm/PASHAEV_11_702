@@ -41,14 +41,6 @@ public class Console {
             this.firm = firm;
             return this;
         }
-        public Builder channelCount(int channelCount){
-            this.channelCount = channelCount;
-            return this;
-        }
-        public Builder broadcasrCount(int broadcastCount){
-            this.broadcastCount = broadcastCount;
-            return this;
-        }
         public Builder manufacturer(String manufacturer){
             this.manufacturer = manufacturer;
             return this;
@@ -61,7 +53,7 @@ public class Console {
             return new Console(this);
         }
     }
-    public String getSerialNumber(){
+ /*   public String getSerialNumber(){
         return serialNumber;
     }
     public String getFirm() {
@@ -75,7 +67,7 @@ public class Console {
     }
     public String getTermOfService() {
         return termOfService;
-    }
+    } */
     public void changeChannel(String name){
         for (int i = 0; i < tvSet.channelCount; i++){
             if (tvSet.tvChannel[i].getName() == name) {
