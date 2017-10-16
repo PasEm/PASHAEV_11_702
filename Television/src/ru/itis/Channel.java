@@ -1,7 +1,5 @@
 package ru.itis;
 
-import java.time.LocalTime;
-
 public class Channel {
     public int broadcastCount = 4;
     Broadcast[] tvBroadcast = new Broadcast[broadcastCount];

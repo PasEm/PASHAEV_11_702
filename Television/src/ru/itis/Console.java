@@ -12,12 +12,11 @@ public class Console {
     private String termOfService;
     private Television tvSet = Television.getTelevision();
     public Console(Builder builder){
-      /*  this.serialNumber = builder.serialNumber;
+        this.serialNumber = builder.serialNumber;
         this.name = builder.name;
         this.firm = builder.firm;
         this.manufacturer = builder.manufacturer;
         this.termOfService = builder.termOfService;
-        */
     }
     public static Builder builder() {
         return new Builder();
@@ -81,7 +80,7 @@ public class Console {
         for (int i = 0; i < tvSet.channelCount; i++){
             if (tvSet.tvChannel[i].getName() == name) {
                 for (int j = 0; j < tvSet.tvChannel[i].broadcastCount; j++) {
-                    if (LocalTime.now().isBefore(tvSet.tvChannel[i].tvBroadcast[j].getBeginTime()) && LocalTime.now().isAfter(tvSet.tvChannel[i].tvBroadcast[j].getFinishTime())) {
+                    if (LocalTime.now().isBefore(tvSet.tvChannel[i].tvBroadcast[j].getFinishTime()) && LocalTime.now().isAfter(tvSet.tvChannel[i].tvBroadcast[j].getBeginTime())) {
                         Television.getTelevision().log(tvSet.tvChannel[i].getName(), tvSet.tvChannel[i].tvBroadcast[j].getBroadcastName());
                         break;
                     }

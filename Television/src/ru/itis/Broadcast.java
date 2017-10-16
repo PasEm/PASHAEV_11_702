@@ -12,21 +12,21 @@ public class Broadcast {
     public String getBroadcastName() {
         return broadcastName;
     }
-    public void setBeginTime(LocalTime time){
-        this.beginTime = time;
+    public void setBeginTime(LocalTime beginTime){
+        this.beginTime = beginTime;
     }
     public LocalTime getBeginTime() {
         return beginTime;
     }
-    public void setFinishTime(LocalTime time){
-        this.finishTime = time;
+    public void setFinishTime(LocalTime finishTime){
+        this.finishTime = finishTime;
     }
     public LocalTime getFinishTime(){
         return this.finishTime;
     }
-    public Broadcast(String broadcastName, LocalTime timeBegin, LocalTime timeFinish){
+    public Broadcast(String broadcastName, LocalTime beginTime, LocalTime finishTime){
         setBroadcastName(broadcastName);
-        setBeginTime(timeBegin);
-        setFinishTime(timeFinish);
+        setBeginTime(beginTime);
+        setFinishTime(finishTime);
     }
 }
