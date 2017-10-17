@@ -13,6 +13,9 @@ public class Car {
     public void toPark(ParkingPlace parkplace){
         parkplace.parkCar(this);
     }
+    public void setParkingPlace(ParkingPlace parkingPlace){
+        this.parkingPlace = parkingPlace;
+    }
     public void toTake(ParkingPlace parkplace){
         parkplace.takeCar(this);
     }
