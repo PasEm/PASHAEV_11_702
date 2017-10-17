@@ -4,7 +4,7 @@ import java.time.LocalTime;
 
 public class Television {
     private static final Television instance;
-    public int channelCount = 10;
+    public static final int channelCount = 10;
     private int currentCount = 0;
     Channel[] tvChannel = new Channel[channelCount];
     private Television(){

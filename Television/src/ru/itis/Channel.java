@@ -1,7 +1,7 @@
 package ru.itis;
 
 public class Channel {
-    public int broadcastCount = 4;
+    public static final int broadcastCount = 4;
     Broadcast[] tvBroadcast = new Broadcast[broadcastCount];
     private String name;
     private int count = 0;

@@ -57,7 +57,7 @@ public class Main {
         tvSet.tvChannel[8].addBroadcast(new Broadcast("Интерны", LocalTime.parse("00:00:00"), LocalTime.parse("04:00:00")));
         tvSet.tvChannel[8].addBroadcast(new Broadcast("Наша Russia", LocalTime.parse("04:00:01"), LocalTime.parse("09:00:00")));
         tvSet.tvChannel[8].addBroadcast(new Broadcast("Comedy Club", LocalTime.parse("09:00:01"), LocalTime.parse("18:00:00")));
-        tvSet.tvChannel[8].addBroadcast(new Broadcast("Hous of the ill 2", LocalTime.parse("18:00:01"), LocalTime.parse("23:59:59")));
+        tvSet.tvChannel[8].addBroadcast(new Broadcast("House of the ill 2", LocalTime.parse("18:00:01"), LocalTime.parse("23:59:59")));
         tvSet.addChannel(new Channel("НТВ"));
         tvSet.tvChannel[9].addBroadcast(new Broadcast("Some 1", LocalTime.parse("00:00:00"), LocalTime.parse("10:00:00")));
         tvSet.tvChannel[9].addBroadcast(new Broadcast("Some 2", LocalTime.parse("10:00:01"), LocalTime.parse("14:00:00")));

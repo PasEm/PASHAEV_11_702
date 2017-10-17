@@ -27,8 +27,6 @@ public class Console {
         private String firm;
         private String manufacturer;
         private String termOfService;
-        private int channelCount;
-        private int broadcastCount;
         public Builder serialNumber(String serialNumber){
             this.serialNumber = serialNumber;
             return this;

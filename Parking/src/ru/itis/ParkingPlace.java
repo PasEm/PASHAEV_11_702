@@ -4,13 +4,17 @@ import java.time.LocalTime;
 
 public class ParkingPlace {
     private String place;
-    private int count = 0;
+    private int count;
     private int maxCount = 2;
-    private Car[] carPlaces = new Car[maxCount];
+    private Car[] carPlaces;
     private LocalTime beginTime = LocalTime.parse("00:00:00");
     private LocalTime finishTime = LocalTime.parse("22:00:00");
     public ParkingPlace(String place){
         setPlace(place);
+        this.carPlaces = new Car[maxCount];
+        this.beginTime = beginTime;
+        this.finishTime = finishTime;
+        count = 0;
     }
     public String getPlace() {
         return place;

@@ -4,6 +4,7 @@ public class Car {
     private String model;
     private String color;
     private int number;
+    private ParkingPlace parkingPlace;
     public Car(String model, String color, int number){
         setColor(color);
         setModel(model);
