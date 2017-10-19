@@ -1,15 +1,14 @@
 package ru.itis;
 
-
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.util.Scanner;
 
 public class Ex1 {
 
-    public static void main(String[] args) throws IOException {
-        InputStreamReader inStRe = new InputStreamReader(System.in);
-        char letter = (char) inStRe.read();
-        int number = inStRe.read();
+    public static void main(String[] args) {
+        //InputStreamReader inStRe = new InputStreamReader(System.in);
+        Scanner sc = new Scanner(System.in);
+        char letter = sc.next().charAt(0);
+        int number = sc.nextInt();
         switch (letter) {
             case 'A' :
                 System.out.println((number % 2 == 0) ? "WHITE" : "BLACK");
