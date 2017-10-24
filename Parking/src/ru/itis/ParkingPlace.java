@@ -7,9 +7,9 @@ public class ParkingPlace {
     private int count;
     private static final int maxCount = 2;
     private Car[] carPlaces;
-    private LocalTime beginTime = LocalTime.parse("00:00:00");
-    private LocalTime finishTime = LocalTime.parse("22:00:00");
-    public ParkingPlace(String place){
+    private LocalTime beginTime;
+    private LocalTime finishTime;
+    public ParkingPlace(String place, LocalTime beginTime, LocalTime finishTime){
         setPlace(place);
         this.carPlaces = new Car[maxCount];
         this.beginTime = beginTime;
@@ -25,13 +25,13 @@ public class ParkingPlace {
     public void parkCar(Car car) {
         if (LocalTime.now().isAfter(beginTime) && LocalTime.now().isBefore(finishTime)) {
             int current = 0;
-            count++;
             if (count < maxCount) {
                 while (carPlaces[current] != null){
                     current++;
                 }
                 carPlaces[current] = car;
-                System.out.println("Ваш(а) " + car.getColor() + " " + car.getModel() + " с номером " + car.getNumber() + " заехала на парковку с номером " + getPlace());
+                count++;
+                System.out.println("Ваш(а) " + car.getColor() + " " + car.getModel() + " с номером " + car.getNumber() + " заехала на парковку " + getPlace() + " с номером " + current);
             } else{
                 System.out.println("Извините, парковка переполнена, возвращайтесь в другое время");
             }
@@ -46,12 +46,12 @@ public class ParkingPlace {
                 if (carPlaces[current] == car) {
                     carPlaces[current] = null;
                     count--;
-                    System.out.println("Ваш(а) " + car.getColor() + " " + car.getModel() + " с номером " + car.getNumber() + " уехала с парковки под номером " + getPlace());
+                    System.out.println("Ваш(а) " + car.getColor() + " " + car.getModel() + " с номером " + car.getNumber() + " уехала с парковки " + getPlace() + " под номером " + current);
                     break;
                 }
                 current++;
             }
-            if (current > maxCount) {
+            if (current == maxCount) {
                 System.out.println("Данный автомобиль не был припаркован");
             }
         } else {
