@@ -15,6 +15,5 @@ public class Ex12 {
         double length1 = sc.nextDouble();
         double length2 = sc.nextDouble();
         double length3 = sc.nextDouble();
-
     }
 }
