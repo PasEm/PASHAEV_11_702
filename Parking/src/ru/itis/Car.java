@@ -26,7 +26,7 @@ public class Car {
         this.model = model;
     }
     public void setNumber(int number) {
-        this.number = number;
+            this.number = number;
     }
     public String getColor() {
         return color;
