@@ -5,14 +5,16 @@ import java.time.LocalTime;
 public class Transport {
     protected String transportName;
     protected int oilConsumption;
+    protected int consumption;
     private int count;
     private static final int maxCount = 4;
     private Transport[] transportPlaces = new Transport[maxCount];
     private LocalTime beginTime = LocalTime.parse("00:00:00");
     private LocalTime finishTime = LocalTime.parse("22:00:00");
-    public Transport(String transportName){
+    public Transport(String transportName, int oilConsumption){
         this.transportName = transportName;
-        this.oilConsumption = 0;
+        this.oilConsumption = oilConsumption;
+        this.consumption = 0;
         count = 0;
     }
 
@@ -22,6 +24,10 @@ public class Transport {
 
     public int getOilConsumption() {
         return oilConsumption;
+    }
+
+    public int getConsumption() {
+        return consumption;
     }
 
     public void parkTransport(Transport transport) {
@@ -62,9 +68,8 @@ public class Transport {
         }
     }
 
-    /**public void move(Class c, int length){
-      *  this.oilConsumption += length * c.consumption;
-      *  System.out.println("Ваш транспорт израсходовал " + oilConsumption + " литров топлива");
+    public static void move(Transport transport, int length){
+        transport.consumption += length * transport.getOilConsumption();
+        System.out.println("Ваш транспорт всего израсходовал " + transport.getConsumption() + " литров топлива");
     }
-     Требует доработки*/
 }

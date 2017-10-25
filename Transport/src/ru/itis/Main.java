@@ -3,7 +3,7 @@ package ru.itis;
 public class Main {
 
     public static void main(String[] args) {
-        Transport trans = new Transport("Transport Parkking");
+        Transport trans = new Transport("Transport Parkking", 0);
         Airbus a1 = new Airbus("Boing-777", 10);
         Tank tank = new Tank("Panzer", 7);
         TractorBelarus lukashenkoIsComing = new TractorBelarus("LUKASHENKO", 2, 500000);
@@ -16,5 +16,7 @@ public class Main {
         trans.parkTransport(lukashenkoIsComing);
         trans.takeTransport(tank);
         trans.parkTransport(lukashenkoIsComing);
+        Transport.move(car2,50);
+        Transport.move(car2,50);
     }
 }
