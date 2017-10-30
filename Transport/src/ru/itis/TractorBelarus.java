@@ -2,13 +2,13 @@ package ru.itis;
 
 public class TractorBelarus extends Transport {
 
-    private int potatoAmount;
+    private static int potatoAmount;
     public TractorBelarus(String name, int oilConsumption, int potatoAmount){
         super(name,oilConsumption);
         this.potatoAmount = potatoAmount;
     }
 
-    public int getPotatoAmount() {
+    public static int getPotatoAmount() {
         return potatoAmount;
     }
 }
