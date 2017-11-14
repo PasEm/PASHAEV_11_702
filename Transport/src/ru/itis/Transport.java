@@ -27,5 +27,4 @@ public class Transport {
         consumption += length * getOilConsumption();
         System.out.println("Ваш транспорт " + getTransportName() + " всего израсходовал " + getConsumption() + " литров топлива");
     }
-
 }

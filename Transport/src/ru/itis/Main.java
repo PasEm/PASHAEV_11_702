@@ -20,6 +20,7 @@ public class Main {
         park.parkTransport(lukashenko);
         car2.move(50);
         car2.move(50);
+        tank.move(200);
         lukashenko.cartoshkaTime();
     }
 }
