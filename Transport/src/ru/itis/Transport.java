@@ -23,16 +23,9 @@ public class Transport {
         return consumption;
     }
 
-    public static void move(Transport transport, int length){
-        transport.consumption += length * transport.getOilConsumption();
-        System.out.println("Ваш транспорт " + transport.getTransportName() + " всего израсходовал " + transport.getConsumption() + " литров топлива");
+    public void move(int length){
+        consumption += length * getOilConsumption();
+        System.out.println("Ваш транспорт " + getTransportName() + " всего израсходовал " + getConsumption() + " литров топлива");
     }
 
-    public void cartoshkaTime(){
-        if (this.getClass() == TractorBelarus.class){
-            System.out.println("У вас " + TractorBelarus.getPotatoAmount() + " кг картошки" );
-        } else {
-            System.out.println("У вас нет транспорта \"Трактор-Беларусь\"");
-        }
-    }
 }
