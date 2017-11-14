@@ -40,9 +40,8 @@ public class MyNewScanner {
         number = ((char) bytes[0] == '-') ? (number == 0) ? number : -number : number;
         if (check == 1){
             System.err.println("Error java: incompatible types: java.lang.String cannot be converted to int");
-            return 0;
-        } else {
-            return number;
+            System.exit(-1);
         }
+        return number;
     }
 }
