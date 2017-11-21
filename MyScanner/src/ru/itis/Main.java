@@ -8,6 +8,8 @@ public class Main {
         System.out.println(line);
         scanner = new MyNewScanner("C:/Users/bloof/Desktop/PASHAEV_11_702/MyScanner/src/ru/itis/inputInteger.txt");
         int numb = scanner.nextInt();
+        String s = scanner.nextLine();
+        System.out.println(s);
         System.out.println(numb);
     }
 }
