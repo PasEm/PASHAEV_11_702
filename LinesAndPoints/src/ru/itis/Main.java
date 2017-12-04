@@ -1,8 +1,6 @@
 package ru.itis;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.*;
 
@@ -18,7 +16,7 @@ public class Main {
         while(scanner.hasNext()){
             points.add(new Point(scanner.nextInt(),scanner.nextInt()));
         }
-        Collections.sort(points, new Comparator<Point>() {
+        points.sort(new Comparator<Point>() {
             @Override
             public int compare(Point o1, Point o2) {
                 if (o1.getX() > o2.getX()) {
