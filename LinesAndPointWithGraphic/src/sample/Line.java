@@ -1,19 +1,23 @@
 package sample;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class Line {
-    private ArrayList<Point> line;
+    public LinkedList<Point> line;
 
     public Line() {
-        line = new ArrayList<>();
+        line = new LinkedList<>();
     }
 
     public void addPoint(Point point){
         line.add(point);
     }
 
-    public Point getLastPoint(){
-        return line.get(line.size() -1);
+    public int getCount(){
+        return line.size();
+    }
+
+    public Point getPoint (int index){
+        return line.get(index);
     }
 }

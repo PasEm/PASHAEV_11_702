@@ -1,0 +1,90 @@
+ lines.add(new Line());
+        lines.get(lines.size() - 1).addPoint(points.get(0));
+        seriesList.add(new XYChart.Series());
+        seriesList.get(seriesList.size() - 1).getData().add(new XYChart.Data(lines.get(lines.size() - 1).getLastPoint().getX(), lines.get(lines.size() - 1).getLastPoint().getY()));
+        seriesList.get(seriesList.size() -1).setName("Line" + ++index);
+        points.remove(0);
+        for (int i = 0; i < points.size();){
+            int left = 0;
+            int right = lines.size() - 1;
+            while (right - left > 1)
+            {
+                int mid = left + (right - left) / 2;
+                if (lines.get(mid).getLastPoint().getY() > points.get(i).getY()){
+                   right = mid;
+                } else{
+                    left = mid;
+                }
+            }
+            if (points.get(i).getY() >= lines.get(right).getLastPoint().getY() && points.get(i).getX() >= lines.get(right).getLastPoint().getX()){
+                lines.get(right).addPoint(points.get(0));
+                seriesList.get(right).getData().add(new XYChart.Data(lines.get(right).getLastPoint().getX(), lines.get(right).getLastPoint().getY()));
+                points.remove(0);
+            } else{
+                lines.add(new Line());
+                lines.get(lines.size() - 1).addPoint(points.get(0));
+                seriesList.add(new XYChart.Series());
+                seriesList.get(seriesList.size() -1).setName("Line" + ++index);
+                seriesList.get(seriesList.size() - 1).getData().add(new XYChart.Data(lines.get(lines.size() - 1).getLastPoint().getX(), lines.get(lines.size() - 1).getLastPoint().getY()));
+                points.remove(0);
+            }
+        }
+        for (XYChart.Series s : seriesList){
+            lineChart.getData().add(s);
+        }
+
+
+
+        9 3; 7 3; 7 1; 5 6; 5 1; 4 4; 3 2; 2 6; 2 3; 2 1; 1 3; -1 -1; -1 -7; 9 3 ; 7 3 ; 7 1 ; 5 1 ;
+        5 6 ; 4 4 ; 3 2 ;
+        2 6 ; 2 3 ; 2 1 ;
+        1 3 ; -1 -1 ; -1 -7 ;
+
+
+
+
+
+        int pointCount = points.size();
+                lines.add(new Line());
+                lines.get(lines.size() - 1).addPoint(points.get(0), 0);
+                points.remove(0);
+                for (int i = 0; i < points.size();){
+                    int left = 0;
+                    int right = lines.size() - 1;
+                    int previousMid = -1;
+                    boolean check = false;
+                    while (right - left > 0)
+                    {
+                        int mid = left + (right - left) / 2;
+                        if (previousMid == -1){
+                            previousMid = mid;
+                        } else{
+                            check = true;
+                        }
+                        if (lines.get(mid).getPoint(0).getY() > points.get(i).getY()){
+                            if (points.get(i).getY() > lines.get(mid).getPoint(0).getY() || points.get(i).getX() > lines.get(mid).getPoint(0).getX()){
+                                right = left;
+                                break;
+                            }
+                            left = mid;
+                        } else{
+                            if (points.get(i).getY() > lines.get(mid).getPoint(0).getY() || points.get(i).getX() > lines.get(mid).getPoint(0).getX()){
+                                break;
+                            }
+                            right = mid;
+                        }
+                        if (previousMid == mid && check){
+                            break;
+                        } else{
+                            previousMid = mid;
+                        }
+                    }
+                    if (points.get(i).getY() <= lines.get(right).getPoint(0).getY() && points.get(i).getX() <= lines.get(right).getPoint(0).getX()){
+                        lines.get(right).addPoint(points.get(0), 0);
+                        points.remove(0);
+                    } else{
+                        lines.add(new Line());
+                        lines.get(lines.size() - 1).addPoint(points.get(0), 0);
+                        points.remove(0);
+                    }
+                }
