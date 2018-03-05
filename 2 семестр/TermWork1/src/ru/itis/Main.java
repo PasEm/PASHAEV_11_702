@@ -14,10 +14,13 @@ public class Main {
         list.delete("Error");
         list.show();
         System.out.println();
+        list.delete("Mark");
+        list.show();
+        System.out.println();
         list.sort("John");
         list.show();
         System.out.println();
-        System.out.println(list.last(2).getName());
+        System.out.println(list.last(3).getName());
 
     }
 }

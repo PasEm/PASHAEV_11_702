@@ -4,18 +4,42 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.Assert;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.util.LinkedList;
+
 public class CircleListTester {
-    private CircleList list;
+    private LinkedList<Participant> list;
 
     @Before
     public void setUp(){
-        this.list = CircleList.create("input.txt");
+        this.list = new LinkedList<>();
+        list.add(new Participant("Ivan", 'm'));
+        list.add(new Participant("Mary", 'f'));
+        list.add(new Participant("Anna", 'f'));
+        list.add(new Participant("Lora", 'f'));
+        list.add(new Participant("John", 'm'));
+        list.add(new Participant("Ivan", 'm'));
+        list.add(new Participant("Jovanni", 'm'));
+        list.add(new Participant("Mark", 'm'));
+        list.add(new Participant("Aria", 'f'));
+        list.add(new Participant("Bella", 'f'));
+    }
+
+    @Test
+    public void testCreate(){
+        setUp();
+        CircleList circleList = CircleList.create("input.txt");
+        int index = 0;
+        for (Participant member: circleList){
+            Assert.assertEquals(list.get(index).getName(), member.getName());
+            Assert.assertEquals(list.get(index++).getGender(), member.getGender());
+        }
     }
 
     @Test
     public void testGender(){
-        setUp();
-        CircleList[] gender = list.gender();
+        CircleList[] gender = CircleList.create("input.txt").gender();
         String[] genderM = new String[gender[0].size()];
         String[] genderF = new String[gender[1].size()];
         int i = 0;
@@ -43,9 +67,69 @@ public class CircleListTester {
     @Test
     public void testInsert(){
         setUp();
-        this.list.insert(new Participant("Andromeda", 'f'));
-        String[] name = new String[11];
-        Character[] gender = new Character[11];
+        CircleList circleList = CircleList.create("input.txt");
+        circleList.insert(new Participant("Andromeda", 'f'));
+        this.list.add(new Participant("Andromeda", 'f'));
+        int index = 0;
+        for (Participant member: circleList){
+            Assert.assertEquals(list.get(index).getName(), member.getName());
+            Assert.assertEquals(list.get(index++).getGender(), member.getGender());
+        }
+    }
+
+    @Test
+    public void testDelete() {
+        setUp();
+        this.list.remove(7);
+        CircleList circleList = CircleList.create("input.txt");
+        circleList.delete("Mark");
+        int index = 0;
+        for (Participant member : circleList) {
+            Assert.assertEquals(list.get(index).getName(), member.getName());
+            Assert.assertEquals(list.get(index++).getGender(), member.getGender());
+        }
+    }
+
+    @Test
+    public void testShow(){
+        setUp();
+        ByteArrayOutputStream arrayOutputStream = new ByteArrayOutputStream();
+        PrintStream console = System.out;
+        PrintStream outputStream = new PrintStream(arrayOutputStream);
+        System.setOut(outputStream);
+        CircleList circleList = CircleList.create("input.txt");
+        circleList.show();
+        String[] output = arrayOutputStream.toString().trim().split(System.lineSeparator());
+        for (int i = 0; i <this.list.size(); i++){
+            Assert.assertEquals(this.list.get(i).getName() + ' ' + this.list.get(i).getGender(), output[i]);
+        }
+        System.setOut(console);
+    }
+
+    @Test
+    public void testLast(){
+        CircleList circleList = CircleList.create("input.txt");
+        Participant winner = circleList.last(3);
+        Assert.assertEquals("Lora", winner.getName());
+        Assert.assertEquals('f', winner.getGender());
+    }
+
+    @Test
+    public void testSort(){
+        setUp();
+        list.set(4, new Participant("Aria", 'f'));
+        list.set(5, new Participant("Bella", 'f'));
+        list.set(6, new Participant("Ivan", 'm'));
+        list.set(7, new Participant("John", 'm'));
+        list.set(8, new Participant("Jovanni", 'm'));
+        list.set(9, new Participant("Mark", 'm'));
+        CircleList circleList = CircleList.create("input.txt");
+        circleList.sort("John");
+        int index = 0;
+        for (Participant member: circleList){
+            Assert.assertEquals(list.get(index).getName(), member.getName());
+            Assert.assertEquals(list.get(index++).getGender(), member.getGender());
+        }
 
     }
 }

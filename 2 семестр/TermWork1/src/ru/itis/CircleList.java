@@ -89,8 +89,38 @@ public class CircleList implements Iterable<Participant>{
             current = current.next;
         }
         if (current == head){
-            head = current.next;
-            tail.next = head;
+            if (size == 1){
+                head = tail = null;
+            } else {
+                head = current.next;
+                tail.next = head;
+            }
+        } else {
+            if (current == tail) {
+                tail = previous;
+                tail.next = head;
+            } else if (current.member.getName().equals(name))
+                previous.next = current.next;
+        }
+        this.size--;
+    }
+
+    public void delete(String name, int index){
+        if (!contain(name))
+            return;
+        Node previous = tail;
+        Node current = head;
+        for (int i = 0; i < index ; i++){
+            previous = current;
+            current = current.next;
+        }
+        if (current == head){
+            if (size == 1){
+                head = tail = null;
+            } else {
+                head = current.next;
+                tail.next = head;
+            }
         } else {
             if (current == tail) {
                 tail = previous;
@@ -110,15 +140,17 @@ public class CircleList implements Iterable<Participant>{
     }
 
     public Participant last(int k){
-        int index = 1;
+        int index = 1, count = 0;
         Node current = head;
         while(size != 1){
             if (index % k == 0) {
-                delete(current.member.getName());
+                delete(current.member.getName(), count);
+                count = (count == size) ? -1 : count - 1;
                 index = 0;
             }
             current = current.next;
             index++;
+            count = (count == size - 1) ? 0 : count + 1;
         }
         return head.member;
     }
