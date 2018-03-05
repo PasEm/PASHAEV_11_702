@@ -91,6 +91,22 @@ public class CircleListTester {
     }
 
     @Test
+    public void testDeleteSizeZero(){
+        LinkedList<Participant> result = new LinkedList<>();
+        CircleList circleList = new CircleList();
+        circleList.insert(new Participant("Boreal", 'm'));
+        circleList.delete("Boreal");
+        Assert.assertEquals(result.size(), circleList.size());
+        circleList.delete("Andromeda");
+        Assert.assertEquals(result.size(), circleList.size());
+        int index = 0;
+        for (Participant member: circleList){
+            Assert.assertEquals(result.get(index).getGender(), member.getGender());
+            Assert.assertEquals(result.get(index++).getName(), member.getName());
+        }
+    }
+
+    @Test
     public void testShow(){
         setUp();
         ByteArrayOutputStream arrayOutputStream = new ByteArrayOutputStream();
@@ -112,6 +128,17 @@ public class CircleListTester {
         Participant winner = circleList.last(3);
         Assert.assertEquals("Lora", winner.getName());
         Assert.assertEquals('f', winner.getGender());
+        winner = circleList.last(5);
+        Assert.assertEquals("Lora", winner.getName());
+        Assert.assertEquals('f', winner.getGender());
+    }
+
+
+    @Test
+    public void testContain(){
+        CircleList circleList = CircleList.create("input.txt");
+        Assert.assertTrue(circleList.contain("Mark"));
+        Assert.assertFalse(circleList.contain("Boreal"));
     }
 
     @Test
@@ -130,6 +157,12 @@ public class CircleListTester {
             Assert.assertEquals(list.get(index).getName(), member.getName());
             Assert.assertEquals(list.get(index++).getGender(), member.getGender());
         }
+    }
 
+    @Test
+    public void testSize(){
+        setUp();
+        CircleList circleList = CircleList.create("input.txt");
+        Assert.assertEquals(this.list.size(), circleList.size());
     }
 }

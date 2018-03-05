@@ -21,6 +21,5 @@ public class Main {
         list.show();
         System.out.println();
         System.out.println(list.last(3).getName());
-
     }
 }

@@ -105,7 +105,7 @@ public class CircleList implements Iterable<Participant>{
         this.size--;
     }
 
-    public void delete(String name, int index){
+    private void delete(String name, int index){
         if (!contain(name))
             return;
         Node previous = tail;
@@ -240,6 +240,8 @@ public class CircleList implements Iterable<Participant>{
     }
 
     public boolean contain(String name){
+        if (head == null)
+            return false;
         Node current = head;
         while(!current.member.getName().equals(name) && current != tail){
             current = current.next;
