@@ -1,0 +1,17 @@
+int height = (size / 20) / (random.nextInt(size / 100 + 1) + 1);
+            height = (height <= (size / (size / 2))) ? height + random.nextInt(size / 100 + size / 50) + 1 : height;
+            for (int k = 0; k < height; k++){
+                int count = (k == height - 1) ? size : size / (height * (random.nextInt(height) + 1));
+                while(k != height - 1 && count > size / 3)
+                    count = size / (height * (random.nextInt(height) + 1));
+                size -= count;
+                for (int i = 0; i < count; i++) {
+                    int begin = (k == 0) ? random.nextInt(count) : random.nextInt(vertex.size()), end = random.nextInt(this.size);
+                    while(begin > )
+                    while(vertex.contains(end) || begin == end || end < 0)
+                        end = random.nextInt(this.size);
+                    if (!vertex.contains(begin))
+                        vertex.add(begin);
+                    vertex.add(end);
+                    edges.add(new Edge(begin, end));
+                }
