@@ -19,8 +19,12 @@ public class LeeAlgorithm {
         this.end = end;
     }
 
+    private boolean checkCoordinates() {
+        return begin.getX() >= 0 && begin.getX() < net.length && begin.getY() >= 0 && begin.getY() < net[0].length && end.getX() >= 0 && end.getX() < net.length && end.getY() >= 0 && end.getY() < net[0].length;
+    }
+
     public boolean lee(){
-        if (net[begin.getX()][begin.getY()] == wall || net[end.getX()][end.getY()] == wall)
+        if (!checkCoordinates() || net[begin.getX()][begin.getY()] == wall || net[end.getX()][end.getY()] == wall)
             return false;
         this.check = false;
         while(net[end.getX()][end.getY()] == free && !check) {
