@@ -19,9 +19,13 @@ public class SkyScraperWay {
         this.begin = begin;
     }
 
+    private boolean checkCoordinates() {
+        return begin.getFloor() >= 0 && begin.getFloor() < net.size() && end.getFloor() >= 0 && end.getFloor() < net.size() && begin.getX() >= 0 && begin.getX() < net.get(0).length && begin.getY() >= 0 && begin.getY() < net.get(0)[0].length && end.getX() >= 0 && end.getX() < net.get(0).length && end.getY() >= 0 && end.getY() < net.get(0)[0].length;
+    }
+
     public boolean lee(){
         final int wall = -2;
-        if (net.get(begin.getFloor())[begin.getX()][begin.getY()] == wall || net.get(end.getFloor())[end.getX()][end.getY()] == wall)
+        if (!checkCoordinates() || net.get(begin.getFloor())[begin.getX()][begin.getY()] == wall || net.get(end.getFloor())[end.getX()][end.getY()] == wall)
             return false;
         this.check = false;
         while(net.get(end.getFloor())[end.getX()][end.getY()] == free && !check) {
@@ -78,8 +82,8 @@ public class SkyScraperWay {
         return new Point(floor + 1, x, y);
     }
 
-    public static ArrayList<Point> getWay(ArrayList<int[][]> input, Point start, Point end){
-        SkyScraperWay algorithm = new SkyScraperWay(input, start, end);
+    public static ArrayList<Point> getWay(ArrayList<int[][]> input, Point begin, Point end){
+        SkyScraperWay algorithm = new SkyScraperWay(input, begin, end);
         if (!algorithm.lee())
             throw new IllegalArgumentException();
         ArrayList<Point> answer = new ArrayList<>();
