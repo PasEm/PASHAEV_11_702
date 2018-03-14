@@ -14,12 +14,12 @@ public class GraphCreater {
         this.random = new Random();
         this.size = 100;
         this.fileName = "Resources/Input/input";
-        create();
+     //   create();
     }
 
     public void create(){
-        this.size = 2100;
-        for (int j = 20; j < 50; j++, this.size += 100) {
+        this.size = 4700;
+        for (int j = 46; j < 50; j++, this.size += 100) {
             int count = 0;
             Edge[] graph = new Edge[this.size];
             ArrayList<Edge> edges = new ArrayList<>();

@@ -38,13 +38,6 @@ public class TopologicalSorter {
                 return 1;
             return -1;
         }));
-        input1.sort(((o1, o2) -> {
-            if (o1.getBegin() > o2.getBegin())
-                return 1;
-            if (o1.getBegin() == o2.getBegin() && o1.getEnd() > o2.getEnd())
-                return 0;
-            return -1;
-        }));
        for (int i = 0; i < used.size(); i++)
             graph.add(new ArrayList<>());
         for (int i = 0; i < input1.size(); i++) {
@@ -67,7 +60,7 @@ public class TopologicalSorter {
     }
 
     private void topologicalSort() {
-        for (int i = 0; i < used.size(); i++, this.iteration++)
+       for (int i = 0; i < used.size(); i++, this.iteration++)
             if (used.get(i).getValue() == 0)
                 dfs(i);
         if (!this.checkCycle)
@@ -92,13 +85,5 @@ public class TopologicalSorter {
             return true;
         }
         return false;
-    }
-
-    public long getIteration() {
-        return iteration;
-    }
-
-    public long getTime() {
-        return time;
     }
 }

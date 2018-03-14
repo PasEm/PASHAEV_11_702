@@ -38,4 +38,15 @@ public class TopologicalTester {
         input[2] = new Edge(5,3);
         answer = TopologicalSorter.getSort(input);
     }
+
+    @Test
+    public void test3(){
+        Edge[] input = new Edge[4];
+        input[0] = new Edge(1,4);
+        input[1] = new Edge(4,2);
+        input[2] = new Edge(4,3);
+        input[3] = new Edge(3,2);
+        answer = TopologicalSorter.getSort(input);
+        System.out.println(Arrays.toString(answer.toArray()));
+    }
 }
