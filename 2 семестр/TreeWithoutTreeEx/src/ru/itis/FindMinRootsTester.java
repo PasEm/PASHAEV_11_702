@@ -8,14 +8,14 @@ public class FindMinRootsTester {
 
     @Test
     public void test1(){
-        int answer = 2;
+        int answer = 3;
         int result = finder.findMinCountRoot("input/inputDefault.txt");
         Assert.assertEquals(answer, result);
     }
 
     @Test
     public void test2(){
-        int answer = 4;
+        int answer = 7;
         int result = finder.findMinCountRoot("input/input1.txt");
         Assert.assertEquals(answer, result);
     }
@@ -75,5 +75,10 @@ public class FindMinRootsTester {
         int answer = 2;
         int result = finder.findMinCountRoot("input/input11.txt");
         Assert.assertEquals(answer, result);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void test12(){
+        finder.findMinCountRoot("input/input12.txt");
     }
 }

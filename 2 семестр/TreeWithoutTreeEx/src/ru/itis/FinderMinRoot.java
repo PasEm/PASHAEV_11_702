@@ -19,9 +19,15 @@ public class FinderMinRoot {
         readTree(fileName);
         int answer = 0;
         for (int i = 0; i < tree.size(); i++){
-            if (tree.get(i).getChildren().size() > 1 && k <= 1)
+            if ((tree.get(i).getChildren() > 1 && k == 1) || (tree.get(i).getChildren() >= 0 && k < 1))
                 throw new IllegalArgumentException();
-            answer += (tree.get(i).getChildren().size() > k) ? tree.get(i).getChildren().size() / k : 0;
+            int count = tree.get(i).getChildren();
+            if (count > k){
+                while(count > 0){
+                    answer += count / k;
+                    count /= k;
+                }
+            }
         }
         return answer;
     }
@@ -37,10 +43,10 @@ public class FinderMinRoot {
             for (int index = 1; index < n; index++) {
                 int inputRoot = Integer.parseInt(reader.readLine());
                 if (tree.contains(new Root(inputRoot))) {
-                    tree.get(tree.indexOf(new Root(inputRoot))).add(index);
+                    tree.get(tree.indexOf(new Root(inputRoot))).addChild();
                 } else {
                     tree.add(new Root(inputRoot));
-                    tree.get(tree.size() - 1).add(index);
+                    tree.get(tree.size() - 1).addChild();
                 }
             }
             if (reader.ready() || k < 0 || n < 0)

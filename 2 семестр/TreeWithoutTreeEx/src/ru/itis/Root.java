@@ -1,22 +1,21 @@
 package ru.itis;
 
-import java.util.ArrayList;
 import java.util.Objects;
 
 public class Root {
     private int parent;
-    private ArrayList<Integer> children;
+    private int children;
 
     public Root(int parent){
         this.parent = parent;
-        this.children = new ArrayList<>();
+        this.children = 0;
     }
 
-    public void add(int child){
-        children.add(child);
+    public void addChild(){
+        children++;
     }
 
-    public ArrayList<Integer> getChildren() {
+    public int getChildren() {
         return children;
     }
 
