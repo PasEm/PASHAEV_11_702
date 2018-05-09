@@ -6,13 +6,13 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class GraphinArray {
+public class GraphInArray {
     private ArrayList<Pair<Integer, Integer>> edges;
     private int countVertex;
     private int arraySize;
     private int[] graph;
 
-    public GraphinArray(String fileName){
+    public GraphInArray(String fileName){
         this.edges = new ArrayList<>();
         this.countVertex = this.arraySize = 0;
         initialization(fileName);
@@ -60,7 +60,27 @@ public class GraphinArray {
         }
     }
 
-    public void printGraph(){
+    public void printArray(){
         System.out.println(Arrays.toString(graph));
+    }
+
+    public void printGraph(){
+        for (int i = 0; i < countVertex; i++){
+            if (graph[i] != -1){
+                System.out.print("Vertex " + i + ": ");
+                int begin = graph[i];
+                int end = i + 1;
+                for (; graph[end] == -1 && (end < countVertex); end++);
+                end = (end == countVertex) ? graph.length : graph[end];
+                for (int j = begin; j < end; j++){
+                    System.out.print(graph[j] + " ");
+                }
+                System.out.println();
+            }
+        }
+    }
+
+    public int[] getGraph() {
+        return graph;
     }
 }
